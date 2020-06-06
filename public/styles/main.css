@@ -1,0 +1,65 @@
+/* : root irá referenciar a raiz do seu html, coloque ai propriedades repetidas */
+
+:root {
+    --title-color: #322153;
+    /* agora posso utilizar esse nome 'title-color' no documento todo */
+    --primary-color: #34cb79;
+    --background-padrao: #f0f0f5;
+}
+
+* {
+    /* seleciona todos os elementos do documento */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Isso indica que a caixa será "medida" pelas bordas e não pelo conteúdo - movido para o main.css a fim de ser aplicado para todos os elementos */
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* =============================================================
+ *                      BOX MODEL (display: block/inline)
+ *
+ * Todo elemento html é exibido como uma caixa e há dois tipos de caixa
+ * -> Block: Assume a linha toda (todo o espaço disponível horizontalmente)
+ * -> Inline: A caixa ocupa apenas o espaço do conteúdo. Ex: um link
+ *
+ * -------------------------------------------------------------
+ * O CSS possui diversos "tricks" que são combinações de coisas usadas para ter um efeito específico.
+ *
+ * -------------------------------------------------------------
+ * O display: block/inline é mais usado para as caixas do lado de fora. os conteúdos dentro das caixas também possuem
+ * inúmeras opções... veja abaixo.
+ * no chrome, na aba elements, sub-aba styles, você pode inserir um estilo "display" e selecionar as diversas
+ * opções para ver como reagem na sua página.
+ */
+
+body {
+    background: #f0f0f0;
+    -webkit-font-smoothing: antialiased;
+    /*  navegadores baseados no chrome têm essa opção. ela melhora a leitura */
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--title-color);
+    /*  utiliza a variável */
+}
+
+
+/* ASSETS - ICONES. SÃO UM TIPO DE IMAGEM QUE É ENVIADO COMO TEXTO E SE ADEQUA A TELAS DE DIVERSOS TAMANHOS */
+
+
+/* COMO MONTAR ESSAS IMAGENS SVG?? */

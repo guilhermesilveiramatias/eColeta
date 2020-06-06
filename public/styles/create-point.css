@@ -1,0 +1,201 @@
+#page-create-point {
+    width: 90%;
+    max-width: 1100px;
+    /* alinhamento de caixa (pelo lado de fora da caixa - a caixa num contexto externo) */
+    margin: 0 auto;
+}
+
+#page-create-point header {
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#page-create-point header a {
+    color: var(--title-color);
+    /*variável carregada do main.css*/
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+
+#page-create-point header a span {
+    margin-right: 16px;
+    background-image: url('../assets/arrow-left.svg');
+    display: flex;
+    width: 20px;
+    height: 24px;
+}
+
+
+/* Configurações do formulário */
+
+form {
+    /* define a caixa de fundo como branca */
+    background-color: white;
+    /* define uma distância para a "caixa" acima. */
+    margin: 80px auto;
+    /*sentido relógio 80 cima e baixo, auto laterais */
+    border-radius: 8px;
+    /* Define aqui o tamanho máximo */
+    max-width: 730px;
+    /* é o espaço interno da caixa. Importante. ao aumentar o padding a tendência é que o box em si aumente também. isso porque o padrão de
+    caixa definido é o padrão que considera o conteúdo como base.*/
+    padding: 64px;
+    /*box-sizing: border-box;  Isso indica que a caixa será "medida" pelas bordas e não pelo conteúdo - movido para o main.css a fim de ser aplicado para todos os elementos */
+}
+
+form h1 {
+    font-size: 36px;
+}
+
+form fieldset {
+    margin-top: 64px;
+    border: 0;
+}
+
+form legend {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+form legend h2 {
+    font-size: 24px;
+}
+
+form legend span {
+    font-size: 14px;
+    color: var(--title-color);
+}
+
+form .field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+form .field-group {
+    display: flex;
+}
+
+
+/* Abaixo está determinando características tanto para o form input quanto para o form select. */
+
+form input,
+form select {
+    background-color: var(--background-padrao);
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    /* deixa a borda preta quando o campo é selecionado.*/
+    /* outline:none; */
+    border-radius: 8px;
+}
+
+
+/* Em alguns navegadores ocorre que o select não fica com o estilo aplicado. por isso nós precisamos remover o estilo padrão para assim ficar 
+somente o estilo que nós definimos anteriormente */
+
+form select {
+    /* para o chrome */
+    -webkit-appearance: none;
+    /* para o mozilla */
+    -moz-appearance: none;
+    /* para os demais */
+    appearance: none;
+}
+
+form label {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+
+/* Fará selecionar um field que tem um field do lado direito. ou seja
+todas as formatações aplicadas aqui serão aplicadas ao field do lado esquerdo (fields flex com comportamento inline) */
+
+form .field-group .field+.field {
+    margin-left: 24px;
+}
+
+form button {
+    width: 260px;
+    height: 56px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    margin-top: 40px;
+    /* transition: 400ms; */
+    transition: background-color 400ms;
+    /* indica que a transição ocorrerá apenas para a cor */
+}
+
+form button:hover {
+    background-color: #2fb86e;
+}
+
+
+/* Formatação das caixas que representam os itens de coleta. Perceba os padrões */
+
+.items-grid {
+    /* Apresentando o display grid - nele eu posso especificar as linhas e colunas (fixar em 3 colunas e duas linhas)
+    isso diferencia ele do diplay flex que torna tudo inline */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* colocando espaço entre as colunas e linhas do grid. no grid usamos uma palvra especial chamada GAP */
+    gap: 16px;
+}
+
+
+/* Formatando os itens das listas como caixas-verdes */
+
+.items-grid li {
+    background-color: #f5f5f5;
+    /* Remoção dos bullets (marcações) da lista. */
+    list-style: none;
+    border: 2px solid #f5f5f5;
+    border-radius: 8px;
+    height: 180px;
+    padding: 32px 24px 16px;
+    /* torna os itens que estão dentro da lista como flex */
+    display: flex;
+    /* muda o sentido para column */
+    flex-direction: column;
+    /*alinha os itens ao centro.*/
+    align-items: center;
+    /* mantendo um espaço padrão entre os elementos*/
+    justify-content: space-between;
+    /* alinhamento de textos */
+    text-align: center;
+    /*  mudando o cursor */
+    cursor: pointer;
+}
+
+.items-grid li span {
+    margin-top: 12px;
+    /* Definindo o span como flex: 1 - isso vai fazer com que o span pegue todo o espaço que sobrar dentro da li. */
+    flex: 1;
+    /* display flex é necessário para alinhar o texto */
+    display: flex;
+    align-items: center;
+    color: var(--title-color);
+}
+
+.items-grid li.selected {
+    background: #e1faec;
+    border: 2px solid #34cb79;
+}
+
+.items-grid li img,
+.items-grid li span {
+    /* Removendo o evento de pointer do elemento para que não possa clicar nele e o click ocorra apenas no pai. */
+    pointer-events: none;
+}

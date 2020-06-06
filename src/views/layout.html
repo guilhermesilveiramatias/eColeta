@@ -1,0 +1,43 @@
+<!--indica para o browser que você vai utilizar o html 5 "emmet" é o cara inteligente. digite exclamaçaõ que ele aparece-->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- existem vários tipos de meta que configuram coisas no nosso site.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- esse meta configura a tela para diversos layouts de tela.-->
+
+{% block title %}
+    <title>Ecoleta</title>
+{% endblock title %}
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/main.css">
+
+    {% block styles %}
+    {% endblock styles %}
+
+    <!-- Deixar a parte de responsividade por último. -->
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+</head>
+<body>
+    <div id="{{ pageId }}">   
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    {% block modal %}    
+    {% endblock modal %}
+
+    {% block scripts %}
+    {% endblock scripts %}
+
+</body>
+</html>

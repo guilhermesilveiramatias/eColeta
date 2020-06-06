@@ -1,0 +1,105 @@
+#modal {
+    background-color: #030A14ef;
+    /* ESTRATÉGIA PARA COBRIR TODA A TELA. */
+    /* 100 % da view height */
+    height: 100vh;
+    /* 100 % da view width */
+    width: 100vw;
+    /* Fixed ficará na posição fixa onde for indicado - não permite rolagem */
+    position: fixed;
+    top: 0;
+    /* 
+    ## Configurando o que tem dentro da modal. ## 
+    */
+    display: flex;
+    /* Alinha horizontalmente */
+    justify-content: center;
+    /* Alinha verticalmente */
+    align-items: center;
+    transition: 400ms;
+}
+
+
+/* Classe para esconder o form */
+
+#modal.hide {
+    display: none;
+}
+
+#modal .content {
+    color: white;
+    width: 420px;
+}
+
+#modal .header {
+    /* Deixa os elementos do lado */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+}
+
+#modal .header a {
+    background-image: url("../assets/x.svg");
+    width: 20px;
+    height: 20px;
+    display: flex;
+    /* leitores de conteúdo. */
+    font-size: 0.01px;
+}
+
+#modal .header h1 {
+    color: white;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+#modal form label {
+    font-size: 14px;
+    line-height: 16px;
+    /* preciso transformar em block para aplicar a margem. */
+    display: block;
+    margin-bottom: 8px;
+}
+
+#modal form .field {
+    display: flex;
+}
+
+#modal form input {
+    /* pega todo o espaço que sobrar. */
+    flex: 1;
+    background-color: var(--background-padrao);
+    border-radius: 8px 0px 0px 8px;
+    border: 0;
+    padding: 16px 24px;
+    font-size: 16px;
+    color: #6C6C80;
+}
+
+#modal form button {
+    width: 72px;
+    height: 72px;
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: 0px 8px 8px 0px;
+}
+
+#modal form button:hover {
+    background-color: #2fb86e;
+    transition: 200ms;
+}
+
+
+/* isto é para o model point created */
+
+#modal.point .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modal.point h1 {
+    color: white;
+    margin-top: 32px;
+}

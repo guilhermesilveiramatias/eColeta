@@ -1,0 +1,61 @@
+/* define um conjunto de regras que são aplicadas dependendo do tamanho - importante ter as propriedades inicias html */
+
+
+/* nome: media q... pesquisar) */
+
+@media(max-width: 900px) {
+    #page-home {
+        background-position-x: 70vw;
+        /* estou movendo a página bem para a direita */
+    }
+    #page-home .content {
+        align-items: center;
+        text-align: center;
+    }
+    /* jogando elemento para baixo  */
+    #page-home header a {
+        position: absolute;
+        /* quando fazemos uma posição absoluta (coloca o elemento como numa folha de papel.. acima)*/
+        bottom: 48px;
+        /*precisa ter "a folha de papel"*/
+        left: 50%;
+        transform: translate(-50%);
+        /*  tira metade do tamanho do conteúdo */
+    }
+    #page-home main {
+        align-items: center;
+    }
+    #page-search-results .cards {
+        grid-template-columns: 1fr;
+        /* width: 90%;
+        max-width: 1100px;
+        margin: 0 auto; */
+    }
+    #page-search-results .cards img {
+        height: 250px;
+    }
+    #page-create-point .field-group {
+        flex-direction: column;
+    }
+    #page-create-point .field-group .field+.field {
+        transition: 400ms;
+        margin-left: 0;
+    }
+}
+
+
+/* de 1700 para cima */
+
+@media (min-width:1700px) {
+    #page-home {
+        background-position-x: 40vw;
+        /* estou movendo a página bem para a direita */
+    }
+}
+
+@media (max-height: 760px) {
+    #page-home {
+        background-position-y: 200px;
+        /* estou movendo a página bem para a direita */
+    }
+}
