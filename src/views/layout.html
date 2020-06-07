@@ -1,3 +1,14 @@
+{# 
+    ESSE É O AQRUIVO QUE IMPLEMENTA A "MASTER PAGE" DO PROJETO.
+
+    Convenção: nomear como layout.html 
+
+    Precisa ser "herdada" nas páginas filhas com {% extends "layout.html" %}
+    
+
+
+#}
+
 <!--indica para o browser que você vai utilizar o html 5 "emmet" é o cara inteligente. digite exclamaçaõ que ele aparece-->
 
 <!DOCTYPE html>
@@ -11,6 +22,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- esse meta configura a tela para diversos layouts de tela.-->
 
+{# ===========================================================================
+                        BLOCOS DE CÓDIGO NUNJUCKS
+    --------------------------------------------------------------------------
+    A template engine é capaz de processar partes da página e para isso utiliza
+    o marcador {}.
+    Os blocos de código são trechos da página de layout que serão substituídos 
+    por conteúdo de página filha.
+
+    Um bloco de código é declarado da seguinte forma:
+        {% block nomeDoBloco %} 
+            conteúdo opcional que será exibido caso a página principal não 
+            implemente o bloco.
+        {% endblock nomeDoBloco %}
+
+ #}
 {% block title %}
     <title>Ecoleta</title>
 {% endblock title %}
@@ -20,6 +46,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/main.css">
 
+
     {% block styles %}
     {% endblock styles %}
 
@@ -28,6 +55,7 @@
 
 </head>
 <body>
+{# Tudo o que estiver entre {{}} são váriáveis nunjucks. E, tenho motivos o suficiente para acreditar, que tudo o que estiver entre chaves {} é interpretado pelo nunjucks #}
     <div id="{{ pageId }}">   
         {% block content %}
         {% endblock content %}

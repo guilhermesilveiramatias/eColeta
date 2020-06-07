@@ -1,6 +1,24 @@
 {# Faz essa página herdar o layout.html. #}
 {% extends "layout.html" %}
 
+{# Esquema do funcionalmento das views parciais.
+
+ > Chamando a página search-results.html
+ 
+ Pipeline da requisição.
+    Navegador --> Get "search" (rota) --> node.js (server.js + express) --> (.render) --> nunjucks --> (processa) --> retorna html para o client.
+
+ Modelo de processamento da renderização nunjucks.
+   
+   search-results.html -> herda "layout.html" (extends)
+                |-> layout.html
+                            |-> Seções block
+                                    |-> Substituições pela search-results.html
+                                                    |-> Include nas views parciais ex: page-header.html
+
+
+ #}
+
 {% set pageId = "page-search-results" %}
 
 {% block title %}
@@ -13,14 +31,11 @@
 
 {# Isso é um comentário no nunjucks e abaixo temos um bloco de conteúdo. há um igual na página layout.html #}
 {% block content %}
+    {# Comando nunjucks para inserir a página "partials/page-header.html" aqui. #}
     {% include "partials/page-header.html" %}
-
     <main>
-
         {% if total > 0 %}
-            <h4>
-                <strong>{{total}}
-                    pontos</strong>encontrados.</h4>
+            <h4><strong>{{total}} pontos</strong>encontrados.</h4>
 
             <div class="cards">
                 {# recebe os dados do server. {{places}} #}
@@ -58,7 +73,6 @@
         {% else %}
             <h4><strong>Nenhum</strong> local encontrado.</h4>
         {% endif %}
-
     </main>
 {% endblock content %}
 

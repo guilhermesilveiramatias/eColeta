@@ -1,7 +1,7 @@
 {
     "name": "nlw",
     "version": "1.0.0",
-    "description": "",
+    "description": "Este arquivo armazenará as configurações do projeto e as dependências que serão baixadas caso o projeto seja copiado para outra máquina.",
     "main": "src/server.js",
     "scripts": {
         "start": "nodemon src/server.js"

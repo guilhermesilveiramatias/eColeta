@@ -14,10 +14,6 @@ buttonSearch.addEventListener("click", () => {modal.classList.remove("hide") });
 // Ao clicar no botão fechar (presente na modal), adiciona a classe .css resposável por esconder o modal. (modal invisível.)
 close.addEventListener("click", () => {modal.classList.add("hide");})
 
-
-
-
-
     /* --------------------------------------------------------------
     *                INFORMAÇÕES DA LINGUAGEM
     * - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
